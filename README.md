@@ -1,37 +1,37 @@
 # 🚀 PromptBuilder
 
-PromptBuilder é uma ferramenta inovadora para facilitar a criação e organização de prompts para Inteligência Artificial! 🤖✨
+PromptBuilder is an innovative tool to make it easy to create and organize prompts for Artificial Intelligence! 🤖✨
 
-## ✨ Principais Funcionalidades
+## ✨ Main Features
 
-- 🗂️ **Gestão de Templates:**
-  - Ao iniciar, o projeto verifica e cria automaticamente o diretório `.agenti` em seu diretório pessoal (`<user.home>`), se necessário.
-  - Lê todos os templates `.md` do diretório `<user.home>/.agenti/templates`.
+- 🗂️ **Template Management:**
+  - On startup, the project checks for and automatically creates the `.agenti` directory in your home folder (`<user.home>`) if needed.
+  - Reads all `.md` templates from the `<user.home>/.agenti/templates` directory.
 
-- 🖥️ **Interface Web Intuitiva:**
-  - A página principal (`index.html`) exibe à esquerda uma coluna com botões, cada um representando um template encontrado.
-  - Apenas arquivos `.md` são considerados templates.
+- 🖥️ **Intuitive Web Interface:**
+  - The main page (`index.html`) displays a left column with buttons, each representing a found template.
+  - Only `.md` files are considered templates.
 
-- 📝 **Edição Dinâmica de Prompts:**
-  - Área de texto (textarea) para compor e editar seu prompt.
-  - Botão **Adicionar** ➕: adiciona o conteúdo do textarea ao final do prompt atual.
-  - Botão **Mostrar** 👁️: exibe o prompt atual em um modal (alert/bootstrap).
+- 📝 **Dynamic Prompt Editing:**
+  - Textarea for composing and editing your prompt.
+  - **Add** button ➕: adds the textarea content to the end of the current prompt.
+  - **Show** button 👁️: displays the current prompt in a modal (alert/bootstrap).
 
-- 📚 **Templates Aninhados:**
-  - Ao clicar em um botão de template, o conteúdo do arquivo `.md` é carregado como novos botões abaixo do textarea.
-  - Clicando nesses novos botões, o conteúdo do template é adicionado ao textarea.
+- 📚 **Nested Templates:**
+  - Clicking a template button loads the `.md` file content as new buttons below the textarea.
+  - Clicking these new buttons adds the template content to the textarea.
 
-- 💾 **Edição e Salvamento em Modal:**
-  - Ao exibir o prompt no modal, qualquer edição feita no textarea do modal pode ser salva no prompt atual ao clicar em **Salvar** (botão visível apenas após edição).
+- 💾 **Edit and Save in Modal:**
+  - When showing the prompt in the modal, any edits made in the modal's textarea can be saved to the current prompt by clicking **Save** (button only visible after editing).
 
-## 🛠️ Como Usar
+## 🛠️ How to Use
 
-1. Clone o repositório e execute o projeto Java (Spring Boot).
-2. Acesse a interface web em `http://localhost:8080`.
-3. Gerencie seus templates em `<user.home>/.agenti/templates`.
-4. Crie, edite e salve prompts de forma rápida e visual!
+1. Clone the repository and run the Java (Spring Boot) project.
+2. Access the web interface at `http://localhost:8080`.
+3. Manage your templates in `<user.home>/.agenti/templates`.
+4. Quickly create, edit, and save prompts visually!
 
-## 📦 Estrutura do Projeto
+## 📦 Project Structure
 
 ```
 project-root/
@@ -44,14 +44,14 @@ project-root/
 └── README.md
 ```
 
-## 🤝 Contribuição
+## 🤝 Contributing
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests.
+Contributions are welcome! Feel free to open issues or pull requests.
 
-## 📄 Licença
+## 📄 License
 
-Este projeto está sob a licença MIT.
+This project is licensed under the MIT License.
 
 ---
 
-Feito com 💡 por AkumoSTL
+Made with 💡 by AkumoSTL
