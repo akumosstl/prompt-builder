@@ -5,8 +5,8 @@ PromptBuilder is an innovative tool to make it easy to create and organize promp
 ## ✨ Main Features
 
 - 🗂️ **Template Management:**
-  - On startup, the project checks for and automatically creates the `.agenti` directory in your home folder (`<user.home>`) if needed.
-  - Reads all `.md` templates from the `<user.home>/.agenti/templates` directory.
+  - On startup, the project checks for and automatically creates the `.agentic` directory in your home folder (`<user.home>`) if needed.
+  - Reads all `.md` templates from the `<user.home>/.agentic/templates` directory.
 
 - 🖥️ **Intuitive Web Interface:**
   - The main page (`index.html`) displays a left column with buttons, each representing a found template.
