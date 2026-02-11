@@ -102,7 +102,15 @@
             <div class="col-8 main-content ms-3" style="padding-left: 1px;">
                 <div class="mb-2">
                     <textarea id="mainTextarea" class="form-control" rows="12"></textarea>
+                    <div id="mainMarkdown" class="form-control" style="min-height: 300px; overflow:auto; display:none;"></div>
                 </div>
+                <!-- Add Marked.js for Markdown rendering -->
+                <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+                <script>
+                    // Example Markdown content. Replace this with your dynamic content as needed.
+                    const markdownContent = `# Example Markdown\n\nThis is **Markdown** content.\n\n- Item 1\n- Item 2\n\n[Link](https://example.com)`;
+                    document.getElementById('mainMarkdown').innerHTML = marked.parse(markdownContent);
+                </script>
                 <div class="d-flex mb-2">
                     <button id="adicionarBtn" class="btn btn-success me-2">Adicionar</button>
                     <button id="showBtn" class="btn btn-primary">Mostrar</button>
@@ -160,12 +168,18 @@
                 btn.className = 'btn btn-mdfile';
                 btn.textContent = file.replace('.md', '');
                 btn.onclick = async () => {
-                    // Carrega o conteúdo completo do arquivo .md no textarea principal
+                    // Carrega o conteúdo completo do arquivo .md e renderiza como Markdown
                     const res = await fetch(`/api/agents/block/${file}/ALL`);
                     if (res.ok) {
                         const data = await res.json();
+                        // Show Markdown view
+                        document.getElementById('mainTextarea').style.display = 'none';
+                        document.getElementById('mainMarkdown').style.display = '';
+                        document.getElementById('mainMarkdown').innerHTML = marked.parse(data.block || '');
+                        // Store raw markdown for textarea editing
                         document.getElementById('mainTextarea').value = data.block || '';
                     } else {
+                        document.getElementById('mainMarkdown').innerHTML = '';
                         document.getElementById('mainTextarea').value = '';
                     }
                     lastFile = file;
@@ -238,7 +252,13 @@
 
         async function onTitleClick(file, title) {
             const items = await fetchJson(`/api/agents/items/${file}/${encodeURIComponent(title)}`);
-            document.getElementById('mainTextarea').value = items.join('\n');
+            // Show Markdown view
+            document.getElementById('mainTextarea').style.display = 'none';
+            document.getElementById('mainMarkdown').style.display = '';
+            const rawMd = items.join('\n');
+            document.getElementById('mainMarkdown').innerHTML = marked.parse(rawMd);
+            // Store raw markdown for textarea editing
+            document.getElementById('mainTextarea').value = rawMd;
             // Marca o botão da esquerda como selecionado
             const fileName = file.replace('.md', '');
             selectedFiles.add(fileName);
@@ -280,6 +300,9 @@
         // Botão adicionar: adiciona o texto do textarea à variável promptValue
         const adicionarBtn = document.getElementById('adicionarBtn');
         adicionarBtn.onclick = async function () {
+            document.getElementById('mainMarkdown').style.display = 'none';
+            document.getElementById('mainTextarea').style.display = '';
+            // No change needed here, textarea already has raw value
             const textarea = document.getElementById('mainTextarea');
             const value = textarea.value.trim();
             if (value) {
